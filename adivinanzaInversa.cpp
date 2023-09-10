@@ -28,12 +28,12 @@ int main() {
         }
         else if (strcmp(answer, "<") == 0){
             maxNum = num - 1;
-            num = lowerNum + rand() % (maxNum + 1 - lowerNum);
+            num = (maxNum + lowerNum)/2;
             intentos++;
         }
         else if(strcmp(answer, ">") == 0){
             lowerNum = num + 1;
-            num = lowerNum + rand() % (maxNum + 1 - lowerNum);
+            num = (maxNum + lowerNum)/2;
             intentos++;
         }
 
