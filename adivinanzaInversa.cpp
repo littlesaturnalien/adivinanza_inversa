@@ -8,7 +8,7 @@ using namespace std;
 int main() {
     char answer[1];
     int num;
-    int maxNum = 100, lowerNum = 1, intentos = 0;
+    int maxNum = 100, lowerNum = 1, attempts = 0;
     bool correct = false;
     srand(time(NULL));
     for (int i = 0; i < 1; i++){
@@ -17,7 +17,7 @@ int main() {
 
 
     do{
-        cout << "Intento #" << intentos + 1 << ": " << num << endl;
+        cout << "Intento #" << attempts + 1 << ": " << num << endl;
         cout << endl;
         cout << "Este es el numero que has pensado? Escribe = si es correcto, < si tu numero es menor o > si tu numero es mayor." << endl;
         cout << " ---> ";
@@ -29,22 +29,25 @@ int main() {
         else if (strcmp(answer, "<") == 0){
             maxNum = num - 1;
             num = (maxNum + lowerNum)/2;
-            intentos++;
+            attempts++;
         }
         else if(strcmp(answer, ">") == 0){
             lowerNum = num + 1;
             num = (maxNum + lowerNum)/2;
-            intentos++;
+            attempts++;
+        }
+        else {
+            cout << "Respuesta no valida. Por favor, responde '=', '<' o '>'." << endl;
         }
 
-    } while (correct == false && intentos < 6);
+    } while (correct == false && attempts < 6);
 
      if(correct == false){
         cout << endl;
-        printf(" He perdido :(\n");
+        cout << " He perdido :(" << endl;
     } else{
         cout << endl;
-        printf(" Adivine!!! Gracias por dejarme jugar contigo! \n");
+        cout << " Adivine!!! Gracias por dejarme jugar!" << endl;
     }
 
     return 0;
