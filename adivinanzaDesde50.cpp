@@ -1,49 +1,39 @@
 #include <iostream>
-#include <string.h>
- 
 using namespace std;
- 
+
 int main() {
-    char answer[1];
-    int num = 50;
-    int maxNum = 100, lowerNum = 1, attempts = 0;
-    bool correct = false;
+    char answer;
+    int lowerNum = 1, maxNum = 100;
+    int num;
+    
+    cout << "Piensa en un numero del 1 al 100. Voy a intentar adivinarlo en 5 preguntas." << endl;
 
-
-    do{
-        cout << "Intento #" << attempts + 1 << ": " << num << endl;
-        cout << endl;
+    for (int attempts = 0; attempts < 6; attempts++) {
+        num = (lowerNum + maxNum) / 2;
+        cout <<  "Intento #" << attempts + 1 << ": " << num <<  endl;
         cout << "Este es el numero que has pensado? Escribe = si es correcto, < si tu numero es menor o > si tu numero es mayor." << endl;
-        cout << " ---> ";
         cin >> answer;
 
-        if (strcmp(answer, "=") == 0){
-            correct = true;
-        }
-        else if (strcmp(answer, "<") == 0){
-            maxNum = num - 1;
-            num = (maxNum + lowerNum)/2;
-            attempts++;
-        }
-        else if(strcmp(answer, ">") == 0){
+        if (answer == '=') {
+            cout << "Adivine!!! Gracias por dejarme jugar!" << endl;
+            cout << "El numero era " << num << endl;
+            break;
+        } else if (answer == '>') {
             lowerNum = num + 1;
-            num = (maxNum + lowerNum)/2;
-            attempts++;
-        }
-        else {
+        } else if (answer == '<') {
+            maxNum = num - 1;
+        } else {
             cout << "Respuesta no valida. Por favor, responde '=', '<' o '>'." << endl;
         }
 
-    } while (correct == false && attempts < 6);
-
-     if(correct == false){
-        cout << endl;
-        cout << " He perdido :(" << endl;
-        cout << "Tu numero era: " << num;
-    } else{
-        cout << endl;
-        cout << " Adivine!!! Gracias por dejarme jugar!" << endl;
+        if (attempts == 5  && answer == '<') {
+            cout << " He perdido :(" << endl;
+            cout << "Tu numero era: " << num - 1  << endl;
+        } else if(attempts == 5 && answer == '>'){
+            cout << " He perdido :(" << endl;
+            cout << "Tu numero era: " << num + 1 << endl;
+        }
     }
 
-    return 0;
+   return 0;
 }

@@ -15,6 +15,7 @@ int main() {
         num = lowerNum + rand() % (maxNum + 1 - lowerNum);
     }
 
+    cout << "Piensa en un numero del 1 al 100. Voy a intentar adivinarlo en 5 preguntas." << endl;
 
     do{
         cout << "Intento #" << attempts + 1 << ": " << num << endl;
