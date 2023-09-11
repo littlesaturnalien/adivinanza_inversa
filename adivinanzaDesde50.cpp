@@ -28,10 +28,8 @@ int main() {
         }
 
         if (attempts == 5  && answer == '<') {
-            cout << " He perdido :(" << endl;
             cout << "Tu numero era: " << num - 1  << endl;
         } else if(attempts == 5 && answer == '>'){
-            cout << " He perdido :(" << endl;
             cout << "Tu numero era: " << num + 1 << endl;
         }
     }
