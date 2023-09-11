@@ -16,7 +16,6 @@ int main() {
 
         if (answer == '=') {
             cout << "Adivine!!! Gracias por dejarme jugar!" << endl;
-            cout << "El numero era " << num << endl;
             break;
         } else if (answer == '>') {
             lowerNum = num + 1;
