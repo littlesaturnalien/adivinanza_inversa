@@ -11,7 +11,9 @@ int main() {
     for (int attempts = 0; attempts < 6; attempts++) {
         num = (lowerNum + maxNum) / 2;
         cout <<  "Intento #" << attempts + 1 << ": " << num <<  endl;
+        cout << endl;
         cout << "Este es el numero que has pensado? Escribe = si es correcto, < si tu numero es menor o > si tu numero es mayor." << endl;
+        cout << " ---> ";
         cin >> answer;
 
         if (answer == '=') {
